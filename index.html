@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        Smart Alarm Manager
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="top-bar">
+
+            <h1>
+                ⏰ Smart Alarm Manager
+            </h1>
+
+            <button id="themeBtn">
+                🌙 Dark Mode
+            </button>
+
+        </div>
+
+        <h2 id="clock">
+            Loading...
+        </h2>
+
+        <h3 id="date">
+            Loading...
+        </h3>
+
+        <div class="stats">
+
+            <p>
+                Total Alarms:
+                <span id="alarmCount">
+                    0
+                </span>
+            </p>
+
+            <p>
+                Next Alarm:
+                <span id="nextAlarm">
+                    None
+                </span>
+            </p>
+
+        </div>
+
+        <hr>
+
+        <div class="form">
+
+            <input
+                type="time"
+                id="alarmTime">
+
+            <input
+                type="text"
+                id="alarmLabel"
+                placeholder="Study / Class / Meeting">
+
+            <button id="addAlarm">
+                Add Alarm
+            </button>
+
+        </div>
+
+        <div class="controls">
+
+            <button id="stopAlarm">
+                🛑 Stop Alarm
+            </button>
+
+        </div>
+
+        <h3>
+            Alarm List
+        </h3>
+
+        <ul id="alarmList">
+
+        </ul>
+
+        <audio id="alarmSound">
+            <source
+                src="Alarm.mp3"
+                type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <script src="renderer.js"></script>
+
+</body>
+
+</html>
