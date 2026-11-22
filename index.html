@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-
-    <title>
-        Smart Alarm Manager
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Alarm Manager</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,82 +13,57 @@
     <div class="app">
 
         <div class="top-bar">
-
-            <h1>
-                ⏰ Smart Alarm Manager
-            </h1>
-
-            <button id="themeBtn">
-                🌙 Dark Mode
-            </button>
-
+            <h1>Smart Alarm Manager</h1>
+            <button id="themeBtn">🌙 Dark Mode</button>
         </div>
 
-        <h2 id="clock">
-            Loading...
-        </h2>
-
-        <h3 id="date">
-            Loading...
-        </h3>
+        <h2 id="clock">Loading...</h2>
+        <h3 id="date">Loading...</h3>
 
         <div class="stats">
+            <p>Total Alarms: <span id="alarmCount">0</span></p>
+            <p>Next Alarm: <span id="nextAlarm">None</span></p>
+            <p>Countdown: <span id="countdownText">--</span></p>
+        </div>
 
-            <p>
-                Total Alarms:
-                <span id="alarmCount">
-                    0
-                </span>
-            </p>
-
-            <p>
-                Next Alarm:
-                <span id="nextAlarm">
-                    None
-                </span>
-            </p>
-
+        <!-- RINGING POPUP / ALERT BANNER -->
+        <div id="ringingBanner" class="ringing-banner hidden">
+            <div class="ringing-info">
+                <span class="ringing-badge">🔔 ALARM RINGING!</span>
+                <h2 id="ringingTitle">Alarm</h2>
+                <p id="ringingTime">--:--</p>
+            </div>
+            <div class="ringing-actions">
+                <button id="snoozeBtn" class="snooze-btn">💤 Snooze (5 min)</button>
+                <button id="stopAlarm" class="stop-btn">🛑 Stop Alarm</button>
+            </div>
         </div>
 
         <hr>
 
         <div class="form">
-
-            <input
-                type="time"
-                id="alarmTime">
-
-            <input
-                type="text"
-                id="alarmLabel"
-                placeholder="Study / Class / Meeting">
-
-            <button id="addAlarm">
-                Add Alarm
-            </button>
-
+            <input type="time" id="alarmTime">
+            <input type="text" id="alarmLabel" placeholder="Study / Class / Meeting">
+            <button id="addAlarm">Add Alarm</button>
         </div>
 
-        <div class="controls">
-
-            <button id="stopAlarm">
-                🛑 Stop Alarm
-            </button>
-
+        <!-- REPEAT DAYS -->
+        <div class="days-row" id="daysContainer">
+            <span class="days-label">Repeat:</span>
+            <label><input type="checkbox" value="0"> Sun</label>
+            <label><input type="checkbox" value="1"> Mon</label>
+            <label><input type="checkbox" value="2"> Tue</label>
+            <label><input type="checkbox" value="3"> Wed</label>
+            <label><input type="checkbox" value="4"> Thu</label>
+            <label><input type="checkbox" value="5"> Fri</label>
+            <label><input type="checkbox" value="6"> Sat</label>
         </div>
 
-        <h3>
-            Alarm List
-        </h3>
-
-        <ul id="alarmList">
-
-        </ul>
+        <h3>Alarm List</h3>
+        <ul id="alarmList"></ul>
 
         <audio id="alarmSound">
-            <source
-                src="Alarm.mp3"
-                type="audio/mpeg">
+            <source src="Alarm.mp3" type="audio/mpeg">
         </audio>
 
     </div>
